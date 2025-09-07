@@ -1,0 +1,40 @@
+[versions]
+kotlin = "1.9.24"
+compose = "1.6.10"
+compose-compiler = "1.5.14"
+coroutines = "1.8.0"
+ktor = "2.3.9"
+sqlDelight = "2.0.2"
+
+[plugins]
+android-application = { id = "com.android.application", version = "8.4.0" }
+android-library = { id = "com.android.library", version = "8.4.0" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.24" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "1.9.24" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version = "1.9.24" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "1.9.24" }
+compose-multiplatform = { id = "org.jetbrains.compose", version = "1.6.10" }
+
+[libraries]
+# Kotlin
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Compose
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose" }
+compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
+
+# KMP Compose
+compose-multiplatform-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose" }
+compose-multiplatform-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
+compose-multiplatform-material = { module = "org.jetbrains.compose.material:material", version.ref = "compose" }
+
+# Database
+sqlDelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlDelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+
+# DateTime
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.5.0" }
