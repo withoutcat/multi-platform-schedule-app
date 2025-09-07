@@ -1,8 +1,9 @@
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
-    id("org.jetbrains.compose")
-    id("org.jetbrains.kotlin.plugin.serialization")
-    id("com.android.library")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose.compiler)
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -17,15 +18,17 @@ android {
 kotlin {
     androidTarget {
         compilations.all {
-            kotlinOptions {
-                jvmTarget = "21"
+            compilerOptions.configure {
+                jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
             }
         }
     }
     
     jvm("desktop") {
         compilations.all {
-            kotlinOptions.jvmTarget = "21"
+            compilerOptions.configure {
+                jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            }
         }
     }
     
@@ -39,8 +42,8 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
             }
         }
         

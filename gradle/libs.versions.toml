@@ -1,19 +1,20 @@
 [versions]
-kotlin = "1.9.24"
-compose = "1.6.10"
+kotlin = "2.2.10"
+compose = "1.7.0"
 compose-compiler = "1.5.14"
-coroutines = "1.8.0"
-ktor = "2.3.9"
+coroutines = "1.9.0"
+ktor = "3.0.2"
 sqlDelight = "2.0.2"
 
 [plugins]
-android-application = { id = "com.android.application", version = "8.4.0" }
-android-library = { id = "com.android.library", version = "8.4.0" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.24" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "1.9.24" }
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version = "1.9.24" }
-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "1.9.24" }
-compose-multiplatform = { id = "org.jetbrains.compose", version = "1.6.10" }
+android-application = { id = "com.android.application", version = "8.13.0" }
+android-library = { id = "com.android.library", version = "8.13.0" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.10" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.2.10" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version = "2.2.10" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.2.10" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version = "2.2.10" }
+compose-multiplatform = { id = "org.jetbrains.compose", version = "1.7.0" }
 
 [libraries]
 # Kotlin
@@ -37,4 +38,4 @@ sqlDelight-android = { module = "app.cash.sqldelight:android-driver", version.re
 sqlDelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 
 # DateTime
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.5.0" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.7.1" }

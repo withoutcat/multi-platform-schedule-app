@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.kotlin.compose.compiler)
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 compose.desktop {
