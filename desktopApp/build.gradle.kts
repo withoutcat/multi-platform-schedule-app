@@ -12,10 +12,14 @@ compose.desktop {
     application {
         mainClass = "com.schedule.app.desktop.MainKt"
         
-        // JVM参数配置
+        // JVM参数配置 - 包含日志和系统属性配置
         jvmArgs(
             "-Xmx1024m",
-            "-Dfile.encoding=UTF-8"
+            "-Dfile.encoding=UTF-8",
+            "-Dlogback.configurationFile=logback.xml",
+            "-Djava.awt.headless=false",
+            "-Dcompose.application.configure.swing.globals=true",
+            "-Dlogback.root.level=INFO"
         )
         
         nativeDistributions {
@@ -54,24 +58,4 @@ tasks.register("debug", JavaExec::class) {
     systemProperty("java.awt.headless", "false")
     systemProperty("compose.application.configure.swing.globals", "true")
     systemProperty("logback.root.level", "DEBUG")
-}
-
-// 运行任务 - info级别日志
-tasks.register("runInfo", JavaExec::class) {
-    group = "application"
-    description = "运行应用程序（生产模式 - info级别日志）"
-    mainClass.set("com.schedule.app.desktop.MainKt")
-    classpath = sourceSets["main"].runtimeClasspath
-    
-    // 生产模式的JVM参数
-    jvmArgs(
-        "-Xmx1024m",
-        "-Dfile.encoding=UTF-8",
-        "-Dlogback.configurationFile=logback.xml"
-    )
-    
-    // 设置系统属性 - info级别
-    systemProperty("java.awt.headless", "false")
-    systemProperty("compose.application.configure.swing.globals", "true")
-    systemProperty("logback.root.level", "INFO")
 }
