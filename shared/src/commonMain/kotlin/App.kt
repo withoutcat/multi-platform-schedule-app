@@ -13,11 +13,26 @@ import com.schedule.app.components.QuickCreateDialog
 import com.schedule.app.components.SimpleCalendarView
 import com.schedule.app.model.TodoItem
 import com.schedule.app.state.AppState
+import org.slf4j.LoggerFactory
+
+private val logger = LoggerFactory.getLogger("ScheduleApp")
 
 @Composable
 fun App() {
+    // 调试日志 - 在调试模式下会显示详细信息
+    logger.debug("App组件初始化开始")
+    
     val appState = remember { AppState() }
     var showCreateDialog by remember { mutableStateOf(false) }
+    
+    // 调试信息 - 状态变化监控
+    LaunchedEffect(appState.todos.value.size) {
+        logger.debug("当前待办事项数量: {}", appState.todos.value.size)
+    }
+    
+    LaunchedEffect(showCreateDialog) {
+        logger.debug("创建对话框状态: {}", showCreateDialog)
+    }
     
     Column(
         modifier = Modifier
